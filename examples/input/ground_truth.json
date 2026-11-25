@@ -1,0 +1,470 @@
+{
+ "title": "Column-Aware Extraction of Structured Content from Two-Column Research Articles",
+ "authors": "L. Chen, M. Okafor, R. Vasquez",
+ "affiliation": "Institute of Document Engineering, Example University, Beijing 100084, China",
+ "abstract": "We study whether layout-aware reading-order reconstruction improves downstream use of scientific PDFs. A three-page benchmark with a known ground truth is rendered from a controlled layout engine, so that block order, header and footer positions, table cells and equation numbers are all known exactly. A naive extractor that reads glyphs in content-stream order recovers 71.4% of body characters in the correct position; a column-aware extractor that segments pages by whitespace cuts recovers 98.1%, and its block order agrees with the ground truth at Kendall tau = 0.97.",
+ "keywords": "document layout analysis; reading order; two-column PDF; table extraction; reproducibility",
+ "sections": [
+  "1  Introduction",
+  "2  Method",
+  "3  Experiments",
+  "4  Results",
+  "5  Discussion",
+  "6  Conclusion"
+ ],
+ "pages": [
+  {
+   "page": 1,
+   "blocks": [
+    {
+     "text": "Column-Aware Extraction of Structured Content from Two-Column",
+     "kind": "title",
+     "bbox": [
+      52.0,
+      770.0,
+      543.0,
+      786.0
+     ]
+    },
+    {
+     "text": "Research Articles",
+     "kind": "title",
+     "bbox": [
+      52.0,
+      752.5,
+      543.0,
+      768.5
+     ]
+    },
+    {
+     "text": "L. Chen, M. Okafor, R. Vasquez",
+     "kind": "authors",
+     "bbox": [
+      52.0,
+      729.0,
+      543.0,
+      739.0
+     ]
+    },
+    {
+     "text": "Institute of Document Engineering, Example University, Beijing 100084, China",
+     "kind": "affiliation",
+     "bbox": [
+      52.0,
+      716.0,
+      543.0,
+      724.0
+     ]
+    },
+    {
+     "text": "Abstract",
+     "kind": "heading",
+     "bbox": [
+      52.0,
+      696.0,
+      112.0,
+      706.0
+     ]
+    },
+    {
+     "text": "We study whether layout-aware reading-order reconstruction improves downstream use of scientific PDFs. A three-page benchmark with a known ground truth is rendered from a controlled layout engine, so that block order, header and footer positions, table cells and equation numbers are all known exactly. A naive extractor that reads glyphs in content-stream order recovers 71.4% of body characters in the correct position; a column-aware extractor that segments pages by whitespace cuts recovers 98.1%, and its block order agrees with the ground truth at Kendall tau = 0.97.",
+     "kind": "abstract",
+     "bbox": [
+      58.0,
+      678.56,
+      543.0,
+      693.76
+     ]
+    },
+    {
+     "text": "document layout analysis; reading order; two-column PDF; table extraction; reproducibility",
+     "kind": "keywords",
+     "bbox": [
+      52.0,
+      622.8000000000002,
+      543.0,
+      631.4000000000002
+     ]
+    },
+    {
+     "text": "1  Introduction",
+     "kind": "heading",
+     "bbox": [
+      52.0,
+      600.6400000000002,
+      287.5,
+      613.4400000000003
+     ]
+    },
+    {
+     "text": "Two-column typesetting is the default for most engineering and life-science journals, yet the text layer of a PDF stores glyphs in the order the producer wrote them, not in the order a reader consumes them. Extraction tools that ignore geometry therefore interleave the left and right columns and splice the last line of one paragraph onto the first line of its neighbour.",
+     "kind": "paragraph",
+     "bbox": [
+      52.0,
+      578.5600000000002,
+      287.5,
+      598.7200000000003
+     ]
+    },
+    {
+     "text": "The damage is quiet. A language model handed interleaved text still produces fluent answers, so the failure surfaces only when a claim is checked against the source. Our goal is narrower than full document understanding: recover blocks in reading order, keep a character range for every block, and report what could not be recovered.",
+     "kind": "paragraph",
+     "bbox": [
+      52.0,
+      485.96,
+      287.5,
+      506.11999999999995
+     ]
+    },
+    {
+     "text": "2  Method",
+     "kind": "heading",
+     "bbox": [
+      52.0,
+      411.52000000000004,
+      287.5,
+      424.32000000000005
+     ]
+    },
+    {
+     "text": "The pipeline has three stages. Stage one obtains glyph bounding boxes from a layout backend. Stage two cuts each page recursively along the widest whitespace gap that no glyph crosses, which separates columns before it separates paragraphs. Stage three assembles lines into blocks, strips running heads by frequency, and records for each block a character range into the emitted page text.",
+     "kind": "paragraph",
+     "bbox": [
+      307.5,
+      593.6800000000002,
+      543.0,
+      613.8400000000003
+     ]
+    },
+    {
+     "text": "Formally, let R be the set of bounding boxes on a page and let g be a vertical gap. A cut at x = c is admissible when no box in R straddles c. We choose the admissible cut with maximal width, so that the column gutter is always taken before any intra-column gap, and recurse on both sides. The recursion stops when no gap exceeds tau = 3.5% of the page width.",
+     "kind": "paragraph",
+     "bbox": [
+      307.5,
+      501.07999999999987,
+      543.0,
+      521.2399999999999
+     ]
+    },
+    {
+     "text": "tau = 0.035 * W (1)",
+     "kind": "equation",
+     "bbox": [
+      307.5,
+      426.63999999999993,
+      543.0,
+      437.23999999999995
+     ]
+    },
+    {
+     "text": "recall = |C_match| / |C_true| (2)",
+     "kind": "equation",
+     "bbox": [
+      307.5,
+      408.7199999999999,
+      543.0,
+      419.31999999999994
+     ]
+    }
+   ],
+   "table": null
+  },
+  {
+   "page": 2,
+   "blocks": [
+    {
+     "text": "3  Experiments",
+     "kind": "heading",
+     "bbox": [
+      52.0,
+      762.0,
+      287.5,
+      774.8000000000001
+     ]
+    },
+    {
+     "text": "The benchmark comprises three pages rendered at 8.6 pt with a 20 pt gutter, a running head, page numbers, one table with five columns and two numbered equations. Ground truth is emitted by the renderer, so text, order and table cells are exact rather than annotated by hand.",
+     "kind": "paragraph",
+     "bbox": [
+      52.0,
+      739.92,
+      287.5,
+      760.08
+     ]
+    },
+    {
+     "text": "We compare two extractors under identical inputs. The naive baseline concatenates text in content-stream order. The column-aware extractor is the pipeline of Section 2. Both are scored on character recall in the correct position, on block-order agreement, and on the number of running-head lines that leak into the body.",
+     "kind": "paragraph",
+     "bbox": [
+      52.0,
+      669.7199999999997,
+      287.5,
+      689.8799999999998
+     ]
+    },
+    {
+     "text": "Table 1. Extraction quality on the three-page benchmark (mean of 3 runs).",
+     "kind": "caption",
+     "bbox": [
+      52.0,
+      606.4799999999994,
+      287.5,
+      617.0799999999995
+     ]
+    },
+    {
+     "text": "4  Results",
+     "kind": "heading",
+     "bbox": [
+      307.5,
+      762.0,
+      543.0,
+      774.8000000000001
+     ]
+    },
+    {
+     "text": "Table 1 reports the main comparison. The baseline recovers 71.4% of body characters in the correct position, leaks 2 running-head lines per page, and its block order correlates with the ground truth at tau = 0.41. The column-aware extractor reaches 98.1%, leaks none, and reaches tau = 0.97.",
+     "kind": "paragraph",
+     "bbox": [
+      307.5,
+      739.92,
+      543.0,
+      760.08
+     ]
+    },
+    {
+     "text": "The residual 1.9% is concentrated in the table: cells whose text wraps across two lines are merged, because the current implementation joins lines by vertical proximity before it splits cells by horizontal gaps. Equation numbers are recovered exactly in both conditions because they sit at the right margin and survive content-stream order.",
+     "kind": "paragraph",
+     "bbox": [
+      307.5,
+      669.7199999999997,
+      543.0,
+      689.8799999999998
+     ]
+    },
+    {
+     "text": "Extractor | Char. recall | Order tau | Head leak | Table F1",
+     "kind": "table-row",
+     "bbox": [
+      52.0,
+      540.8719999999995,
+      287.0,
+      577.8719999999995
+     ]
+    },
+    {
+     "text": "Content-stream | 71.4% | 0.41 | 2.0 | 0.55",
+     "kind": "table-row",
+     "bbox": [
+      52.0,
+      540.8719999999995,
+      287.0,
+      577.8719999999995
+     ]
+    },
+    {
+     "text": "Column-aware | 98.1% | 0.97 | 0.0 | 0.88",
+     "kind": "table-row",
+     "bbox": [
+      52.0,
+      540.8719999999995,
+      287.0,
+      577.8719999999995
+     ]
+    }
+   ],
+   "table": {
+    "header": [
+     "Extractor",
+     "Char. recall",
+     "Order tau",
+     "Head leak",
+     "Table F1"
+    ],
+    "rows": [
+     [
+      "Content-stream",
+      "71.4%",
+      "0.41",
+      "2.0",
+      "0.55"
+     ],
+     [
+      "Column-aware",
+      "98.1%",
+      "0.97",
+      "0.0",
+      "0.88"
+     ]
+    ],
+    "bbox": [
+     52.0,
+     540.8719999999995,
+     287.0,
+     577.8719999999995
+    ]
+   }
+  },
+  {
+   "page": 3,
+   "blocks": [
+    {
+     "text": "5  Discussion",
+     "kind": "heading",
+     "bbox": [
+      52.0,
+      762.0,
+      287.5,
+      774.8000000000001
+     ]
+    },
+    {
+     "text": "Reading order is a precondition for every downstream task, and it is cheap to verify: a character range either re-slices to the recorded text or it does not. We therefore report ranges rather than prose confidence, and we mark a block unresolved instead of guessing when its glyphs carry no usable position.",
+     "kind": "paragraph",
+     "bbox": [
+      52.0,
+      739.92,
+      287.5,
+      760.08
+     ]
+    },
+    {
+     "text": "Two limits deserve mention. Pages whose columns are separated by a rule rather than whitespace defeat the cut test, and scanned pages have no glyph positions at all until OCR runs. Both are reported as unresolved blocks with the reason attached.",
+     "kind": "paragraph",
+     "bbox": [
+      52.0,
+      669.7199999999997,
+      287.5,
+      689.8799999999998
+     ]
+    },
+    {
+     "text": "6  Conclusion",
+     "kind": "heading",
+     "bbox": [
+      52.0,
+      617.6799999999995,
+      287.5,
+      630.4799999999996
+     ]
+    },
+    {
+     "text": "A whitespace-cut ordering pass, a frequency filter for running heads, and per-block character ranges together raise correct-position recall from 71.4% to 98.1% on a controlled two-column benchmark. The gain is measurable, the failure modes are named, and every reported block can be re-sliced from the emitted page text.",
+     "kind": "paragraph",
+     "bbox": [
+      52.0,
+      595.5999999999995,
+      287.5,
+      615.7599999999995
+     ]
+    },
+    {
+     "text": "References",
+     "kind": "heading",
+     "bbox": [
+      307.5,
+      762.0,
+      543.0,
+      774.8000000000001
+     ]
+    },
+    {
+     "text": "[1] L. Chen and M. Okafor. Reading order recovery for two-column articles. Journal of Document Engineering, 12(3):201-219, 2023.",
+     "kind": "paragraph",
+     "bbox": [
+      307.5,
+      739.92,
+      543.0,
+      760.08
+     ]
+    },
+    {
+     "text": "[2] R. Vasquez, A. Petrov, and S. Iyer. Table structure recognition with weak supervision. In Proceedings of the Document Analysis Conference, pages 88-97, 2022.",
+     "kind": "paragraph",
+     "bbox": [
+      307.5,
+      703.3199999999998,
+      543.0,
+      723.4799999999999
+     ]
+    },
+    {
+     "text": "[3] M. Okafor. A note on running-head removal by frequency. Technical Report DE-2021-04, Example University, 2021.",
+     "kind": "paragraph",
+     "bbox": [
+      307.5,
+      666.7199999999997,
+      543.0,
+      686.8799999999998
+     ]
+    },
+    {
+     "text": "[4] H. Zhang and K. Nakamura. Evaluating PDF extractors against rendered ground truth. arXiv:2401.01234, 2024.",
+     "kind": "paragraph",
+     "bbox": [
+      307.5,
+      630.1199999999995,
+      543.0,
+      650.2799999999996
+     ]
+    },
+    {
+     "text": "[5] S. Iyer. Glyph geometry is not reading order. In Workshop on Scholarly Document Processing, pages 12-19, 2020.",
+     "kind": "paragraph",
+     "bbox": [
+      307.5,
+      604.7199999999995,
+      543.0,
+      624.8799999999995
+     ]
+    }
+   ],
+   "table": null
+  }
+ ],
+ "table": {
+  "caption": "Table 1. Extraction quality on the three-page benchmark (mean of 3 runs).",
+  "header": [
+   "Extractor",
+   "Char. recall",
+   "Order tau",
+   "Head leak",
+   "Table F1"
+  ],
+  "rows": [
+   [
+    "Content-stream",
+    "71.4%",
+    "0.41",
+    "2.0",
+    "0.55"
+   ],
+   [
+    "Column-aware",
+    "98.1%",
+    "0.97",
+    "0.0",
+    "0.88"
+   ]
+  ]
+ },
+ "equations": [
+  [
+   "1",
+   "tau = 0.035 * W",
+   "page-width cut threshold"
+  ],
+  [
+   "2",
+   "recall = |C_match| / |C_true|",
+   "correct-position character recall"
+  ]
+ ],
+ "references": [
+  "[1] L. Chen and M. Okafor. Reading order recovery for two-column articles. Journal of Document Engineering, 12(3):201-219, 2023.",
+  "[2] R. Vasquez, A. Petrov, and S. Iyer. Table structure recognition with weak supervision. In Proceedings of the Document Analysis Conference, pages 88-97, 2022.",
+  "[3] M. Okafor. A note on running-head removal by frequency. Technical Report DE-2021-04, Example University, 2021.",
+  "[4] H. Zhang and K. Nakamura. Evaluating PDF extractors against rendered ground truth. arXiv:2401.01234, 2024.",
+  "[5] S. Iyer. Glyph geometry is not reading order. In Workshop on Scholarly Document Processing, pages 12-19, 2020."
+ ]
+}

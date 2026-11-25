@@ -1,0 +1,23 @@
+5 Discussion
+
+Reading order is a precondition for every downstream task, and it is cheap to verify: a character range either re-slices to the recorded text or it does not.
+
+We therefore report ranges rather than prose confidence, and we mark a block unresolved instead of guessing when its glyphs carry no usable position.
+
+Two limits deserve mention. Pages whose columns are separated by a rule rather than whitespace defeat the cut test, and scanned pages have no glyph positions at all until OCR runs. Both are reported as unresolved blocks with the reason attached.
+
+6 Conclusion
+
+A whitespace-cut ordering pass, a frequency filter for running heads, and per-block character ranges together raise correct-position recall from 71.4% to 98.1% on a controlled two-column benchmark. The gain is measurable, the failure modes are named, and every reported block can be re-sliced from the emitted page text.
+
+References
+
+[1] L. Chen and M. Okafor. Reading order recovery for two-column articles. Journal of Document Engineering, 12(3):201-219, 2023.
+
+[2] R. Vasquez, A. Petrov, and S. Iyer. Table structure recognition with weak supervision. In Proceedings of the Document Analysis Conference, pages 88-97, 2022.
+
+[3] M. Okafor. A note on running-head removal by frequency. Technical Report DE-2021-04, Example University, 2021.
+
+[4] H. Zhang and K. Nakamura. Evaluating PDF extractors against rendered ground truth. arXiv:2401.01234, 2024.
+
+[5] S. Iyer. Glyph geometry is not reading order. In Workshop on Scholarly Document Processing, pages 12-19, 2020.

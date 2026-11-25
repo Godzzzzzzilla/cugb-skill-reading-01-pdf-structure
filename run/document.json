@@ -1,0 +1,933 @@
+{
+ "pages": [
+  {
+   "page": 1,
+   "source": "pages/p0001.txt",
+   "chars": 2412,
+   "blocks": 17,
+   "width": 595.0,
+   "height": 842.0
+  },
+  {
+   "page": 2,
+   "source": "pages/p0002.txt",
+   "chars": 1461,
+   "blocks": 16,
+   "width": 595.0,
+   "height": 842.0
+  },
+  {
+   "page": 3,
+   "source": "pages/p0003.txt",
+   "chars": 1554,
+   "blocks": 12,
+   "width": 595.0,
+   "height": 842.0
+  }
+ ],
+ "sections": [
+  {
+   "title": "Abstract",
+   "level": 1,
+   "page": 1,
+   "block_id": "p001b05",
+   "char_start": 192,
+   "char_end": 200,
+   "evidence": "font-size",
+   "evidence_id": "sec1"
+  },
+  {
+   "title": "1 Introduction",
+   "level": 1,
+   "page": 1,
+   "block_id": "p001b08",
+   "char_start": 869,
+   "char_end": 883,
+   "evidence": "font-size",
+   "evidence_id": "sec2"
+  },
+  {
+   "title": "2 Method",
+   "level": 1,
+   "page": 1,
+   "block_id": "p001b11",
+   "char_start": 1594,
+   "char_end": 1602,
+   "evidence": "font-size",
+   "evidence_id": "sec3"
+  },
+  {
+   "title": "tau = 0.035 * W",
+   "level": 1,
+   "page": 1,
+   "block_id": "p001b14",
+   "char_start": 2356,
+   "char_end": 2371,
+   "evidence": "font-size",
+   "evidence_id": "sec4"
+  },
+  {
+   "title": "recall = |C_match| / |C_true|",
+   "level": 1,
+   "page": 1,
+   "block_id": "p001b16",
+   "char_start": 2378,
+   "char_end": 2407,
+   "evidence": "font-size",
+   "evidence_id": "sec5"
+  },
+  {
+   "title": "3 Experiments",
+   "level": 1,
+   "page": 2,
+   "block_id": "p002b01",
+   "char_start": 0,
+   "char_end": 13,
+   "evidence": "font-size",
+   "evidence_id": "sec6"
+  },
+  {
+   "title": "4 Results",
+   "level": 1,
+   "page": 2,
+   "block_id": "p002b13",
+   "char_start": 816,
+   "char_end": 825,
+   "evidence": "font-size",
+   "evidence_id": "sec7"
+  },
+  {
+   "title": "5 Discussion",
+   "level": 1,
+   "page": 3,
+   "block_id": "p003b01",
+   "char_start": 0,
+   "char_end": 12,
+   "evidence": "font-size",
+   "evidence_id": "sec8"
+  },
+  {
+   "title": "6 Conclusion",
+   "level": 1,
+   "page": 3,
+   "block_id": "p003b05",
+   "char_start": 571,
+   "char_end": 583,
+   "evidence": "font-size",
+   "evidence_id": "sec9"
+  },
+  {
+   "title": "References",
+   "level": 1,
+   "page": 3,
+   "block_id": "p003b07",
+   "char_start": 907,
+   "char_end": 917,
+   "evidence": "font-size",
+   "evidence_id": "sec10"
+  }
+ ],
+ "captions": [
+  {
+   "kind": "table",
+   "text": "Table 1. Extraction quality on the three-page benchmark (mean of 3 runs).",
+   "page": 2,
+   "block_id": "p002b05",
+   "char_start": 614,
+   "char_end": 687,
+   "bbox": [
+    52.0,
+    227.2,
+    251.2,
+    245.5
+   ],
+   "evidence_id": "cap1"
+  }
+ ],
+ "equations": [
+  {
+   "number": "1",
+   "text": "tau = 0.035 * W",
+   "with_number": "tau = 0.035 * W (1)",
+   "number_block": "p001b15",
+   "page": 1,
+   "block_id": "p001b14",
+   "char_start": 2356,
+   "char_end": 2371,
+   "evidence_id": "eq1"
+  },
+  {
+   "number": "2",
+   "text": "recall = |C_match| / |C_true|",
+   "with_number": "recall = |C_match| / |C_true| (2)",
+   "number_block": "p001b17",
+   "page": 1,
+   "block_id": "p001b16",
+   "char_start": 2378,
+   "char_end": 2407,
+   "evidence_id": "eq2"
+  }
+ ],
+ "tables": [
+  {
+   "rows": [
+    [
+     "Extractor",
+     "Char. recall",
+     "Order tau",
+     "Head leak",
+     "Table F1"
+    ],
+    [
+     "Content-stream",
+     "71.4%",
+     "0.41",
+     "2.0",
+     "0.55"
+    ],
+    [
+     "Column-aware",
+     "98.1%",
+     "0.97",
+     "0.0",
+     "0.88"
+    ]
+   ],
+   "n_rows": 3,
+   "n_cols": 5,
+   "bbox": [
+    55.0,
+    267.9,
+    289.0,
+    299.5
+   ],
+   "page": 2,
+   "evidence": "caption-anchored",
+   "evidence_id": "tab1"
+  }
+ ],
+ "blocks": [
+  {
+   "block_id": "p001b01",
+   "page": 1,
+   "source": "pages/p0001.txt",
+   "char_start": 0,
+   "char_end": 61,
+   "text": "Column-Aware Extraction of Structured Content from Two-Column",
+   "bbox": [
+    52.0,
+    60.5,
+    477.5,
+    75.0
+   ],
+   "size": 14.5
+  },
+  {
+   "block_id": "p001b02",
+   "page": 1,
+   "source": "pages/p0001.txt",
+   "char_start": 63,
+   "char_end": 80,
+   "text": "Research Articles",
+   "bbox": [
+    52.0,
+    78.0,
+    165.6,
+    92.5
+   ],
+   "size": 14.5
+  },
+  {
+   "block_id": "p001b03",
+   "page": 1,
+   "source": "pages/p0001.txt",
+   "char_start": 82,
+   "char_end": 112,
+   "text": "L. Chen, M. Okafor, R. Vasquez",
+   "bbox": [
+    52.0,
+    104.7,
+    200.8,
+    115.2
+   ],
+   "size": 10.5
+  },
+  {
+   "block_id": "p001b04",
+   "page": 1,
+   "source": "pages/p0001.txt",
+   "char_start": 114,
+   "char_end": 190,
+   "text": "Institute of Document Engineering, Example University, Beijing 100084, China",
+   "bbox": [
+    52.0,
+    119.5,
+    335.0,
+    127.7
+   ],
+   "size": 8.2
+  },
+  {
+   "block_id": "p001b05",
+   "page": 1,
+   "source": "pages/p0001.txt",
+   "char_start": 192,
+   "char_end": 200,
+   "text": "Abstract",
+   "bbox": [
+    52.0,
+    138.1,
+    88.7,
+    148.1
+   ],
+   "size": 10.0
+  },
+  {
+   "block_id": "p001b06",
+   "page": 1,
+   "source": "pages/p0001.txt",
+   "char_start": 202,
+   "char_end": 775,
+   "text": "We study whether layout-aware reading-order reconstruction improves downstream use of scientific PDFs. A three-page benchmark with a known ground truth is rendered from a controlled layout engine, so that block order, header and footer positions, table cells and equation numbers are all known exactly. A naive extractor that reads glyphs in content-stream order recovers 71.4% of body characters in the correct position; a column-aware extractor that segments pages by whitespace cuts recovers 98.1%, and its block order agrees with the ground truth at Kendall tau = 0.97.",
+   "bbox": [
+    58.0,
+    152.9,
+    494.1,
+    204.1
+   ],
+   "size": 8.2
+  },
+  {
+   "block_id": "p001b07",
+   "page": 1,
+   "source": "pages/p0001.txt",
+   "char_start": 777,
+   "char_end": 867,
+   "text": "document layout analysis; reading order; two-column PDF; table extraction; reproducibility",
+   "bbox": [
+    52.0,
+    213.0,
+    361.9,
+    220.8
+   ],
+   "size": 7.8
+  },
+  {
+   "block_id": "p001b08",
+   "page": 1,
+   "source": "pages/p0001.txt",
+   "char_start": 869,
+   "char_end": 883,
+   "text": "1 Introduction",
+   "bbox": [
+    52.0,
+    230.8,
+    120.4,
+    241.6
+   ],
+   "size": 10.8
+  },
+  {
+   "block_id": "p001b09",
+   "page": 1,
+   "source": "pages/p0001.txt",
+   "char_start": 885,
+   "char_end": 1257,
+   "text": "Two-column typesetting is the default for most engineering and life-science journals, yet the text layer of a PDF stores glyphs in the order the producer wrote them, not in the order a reader consumes them. Extraction tools that ignore geometry therefore interleave the left and right columns and splice the last line of one paragraph onto the first line of its neighbour.",
+   "bbox": [
+    52.0,
+    247.7,
+    257.1,
+    334.7
+   ],
+   "size": 8.6
+  },
+  {
+   "block_id": "p001b10",
+   "page": 1,
+   "source": "pages/p0001.txt",
+   "char_start": 1259,
+   "char_end": 1592,
+   "text": "The damage is quiet. A language model handed interleaved text still produces fluent answers, so the failure surfaces only when a claim is checked against the source. Our goal is narrower than full document understanding: recover blocks in reading order, keep a character range for every block, and report what could not be recovered.",
+   "bbox": [
+    52.0,
+    340.3,
+    259.9,
+    416.1
+   ],
+   "size": 8.6
+  },
+  {
+   "block_id": "p001b11",
+   "page": 1,
+   "source": "pages/p0001.txt",
+   "char_start": 1594,
+   "char_end": 1602,
+   "text": "2 Method",
+   "bbox": [
+    52.0,
+    419.9,
+    100.0,
+    430.7
+   ],
+   "size": 10.8
+  },
+  {
+   "block_id": "p001b12",
+   "page": 1,
+   "source": "pages/p0001.txt",
+   "char_start": 1604,
+   "char_end": 1993,
+   "text": "The pipeline has three stages. Stage one obtains glyph bounding boxes from a layout backend. Stage two cuts each page recursively along the widest whitespace gap that no glyph crosses, which separates columns before it separates paragraphs. Stage three assembles lines into blocks, strips running heads by frequency, and records for each block a character range into the emitted page text.",
+   "bbox": [
+    307.5,
+    232.5,
+    517.8,
+    319.5
+   ],
+   "size": 8.6
+  },
+  {
+   "block_id": "p001b13",
+   "page": 1,
+   "source": "pages/p0001.txt",
+   "char_start": 1995,
+   "char_end": 2354,
+   "text": "Formally, let R be the set of bounding boxes on a page and let g be a vertical gap. A cut at x = c is admissible when no box in R straddles c. We choose the admissible cut with maximal width, so that the column gutter is always taken before any intra-column gap, and recurse on both sides. The recursion stops when no gap exceeds tau = 3.5% of the page width.",
+   "bbox": [
+    307.5,
+    325.1,
+    523.1,
+    400.9
+   ],
+   "size": 8.6
+  },
+  {
+   "block_id": "p001b14",
+   "page": 1,
+   "source": "pages/p0001.txt",
+   "char_start": 2356,
+   "char_end": 2371,
+   "text": "tau = 0.035 * W",
+   "bbox": [
+    317.5,
+    406.1,
+    381.2,
+    415.3
+   ],
+   "size": 9.2
+  },
+  {
+   "block_id": "p001b15",
+   "page": 1,
+   "source": "pages/p0001.txt",
+   "char_start": 2373,
+   "char_end": 2376,
+   "text": "(1)",
+   "bbox": [
+    521.0,
+    406.5,
+    531.5,
+    415.1
+   ],
+   "size": 8.6
+  },
+  {
+   "block_id": "p001b16",
+   "page": 1,
+   "source": "pages/p0001.txt",
+   "char_start": 2378,
+   "char_end": 2407,
+   "text": "recall = |C_match| / |C_true|",
+   "bbox": [
+    317.5,
+    424.0,
+    431.6,
+    433.2
+   ],
+   "size": 9.2
+  },
+  {
+   "block_id": "p001b17",
+   "page": 1,
+   "source": "pages/p0001.txt",
+   "char_start": 2409,
+   "char_end": 2412,
+   "text": "(2)",
+   "bbox": [
+    521.0,
+    424.5,
+    531.5,
+    433.1
+   ],
+   "size": 8.6
+  },
+  {
+   "block_id": "p002b01",
+   "page": 2,
+   "source": "pages/p0002.txt",
+   "char_start": 0,
+   "char_end": 13,
+   "text": "3 Experiments",
+   "bbox": [
+    52.0,
+    69.4,
+    124.0,
+    80.2
+   ],
+   "size": 10.8
+  },
+  {
+   "block_id": "p002b02",
+   "page": 2,
+   "source": "pages/p0002.txt",
+   "char_start": 15,
+   "char_end": 176,
+   "text": "The benchmark comprises three pages rendered at 8.6 pt with a 20 pt gutter, a running head, page numbers, one table with five columns and two numbered equations.",
+   "bbox": [
+    52.0,
+    86.3,
+    271.4,
+    117.3
+   ],
+   "size": 8.6
+  },
+  {
+   "block_id": "p002b03",
+   "page": 2,
+   "source": "pages/p0002.txt",
+   "char_start": 178,
+   "char_end": 290,
+   "text": "Ground truth is emitted by the renderer, so text, order and table cells are exact rather than annotated by hand.",
+   "bbox": [
+    52.0,
+    119.9,
+    255.1,
+    150.9
+   ],
+   "size": 8.6
+  },
+  {
+   "block_id": "p002b04",
+   "page": 2,
+   "source": "pages/p0002.txt",
+   "char_start": 292,
+   "char_end": 612,
+   "text": "We compare two extractors under identical inputs. The naive baseline concatenates text in content-stream order. The column-aware extractor is the pipeline of Section 2. Both are scored on character recall in the correct position, on block-order agreement, and on the number of running-head lines that leak into the body.",
+   "bbox": [
+    52.0,
+    156.5,
+    259.9,
+    221.1
+   ],
+   "size": 8.6
+  },
+  {
+   "block_id": "p002b05",
+   "page": 2,
+   "source": "pages/p0002.txt",
+   "char_start": 614,
+   "char_end": 687,
+   "text": "Table 1. Extraction quality on the three-page benchmark (mean of 3 runs).",
+   "bbox": [
+    52.0,
+    227.2,
+    251.2,
+    245.5
+   ],
+   "size": 8.0
+  },
+  {
+   "block_id": "p002b06",
+   "page": 2,
+   "source": "pages/p0002.txt",
+   "char_start": 689,
+   "char_end": 698,
+   "text": "Extractor",
+   "bbox": [
+    55.0,
+    267.9,
+    81.4,
+    274.5
+   ],
+   "size": 6.6
+  },
+  {
+   "block_id": "p002b07",
+   "page": 2,
+   "source": "pages/p0002.txt",
+   "char_start": 700,
+   "char_end": 727,
+   "text": "Content-stream Column-aware",
+   "bbox": [
+    55.0,
+    280.4,
+    100.5,
+    299.5
+   ],
+   "size": 6.6
+  },
+  {
+   "block_id": "p002b08",
+   "page": 2,
+   "source": "pages/p0002.txt",
+   "char_start": 729,
+   "char_end": 770,
+   "text": "Char. recall Order tau Head leak Table F1",
+   "bbox": [
+    143.0,
+    267.9,
+    289.0,
+    274.5
+   ],
+   "size": 6.6
+  },
+  {
+   "block_id": "p002b09",
+   "page": 2,
+   "source": "pages/p0002.txt",
+   "char_start": 772,
+   "char_end": 783,
+   "text": "71.4% 98.1%",
+   "bbox": [
+    143.0,
+    280.4,
+    161.7,
+    299.5
+   ],
+   "size": 6.6
+  },
+  {
+   "block_id": "p002b10",
+   "page": 2,
+   "source": "pages/p0002.txt",
+   "char_start": 785,
+   "char_end": 794,
+   "text": "0.41 0.97",
+   "bbox": [
+    189.0,
+    280.4,
+    201.8,
+    299.5
+   ],
+   "size": 6.6
+  },
+  {
+   "block_id": "p002b11",
+   "page": 2,
+   "source": "pages/p0002.txt",
+   "char_start": 796,
+   "char_end": 803,
+   "text": "2.0 0.0",
+   "bbox": [
+    227.0,
+    280.4,
+    236.2,
+    299.5
+   ],
+   "size": 6.6
+  },
+  {
+   "block_id": "p002b12",
+   "page": 2,
+   "source": "pages/p0002.txt",
+   "char_start": 805,
+   "char_end": 814,
+   "text": "0.55 0.88",
+   "bbox": [
+    263.0,
+    280.4,
+    275.8,
+    299.5
+   ],
+   "size": 6.6
+  },
+  {
+   "block_id": "p002b13",
+   "page": 2,
+   "source": "pages/p0002.txt",
+   "char_start": 816,
+   "char_end": 825,
+   "text": "4 Results",
+   "bbox": [
+    307.5,
+    69.4,
+    355.5,
+    80.2
+   ],
+   "size": 10.8
+  },
+  {
+   "block_id": "p002b14",
+   "page": 2,
+   "source": "pages/p0002.txt",
+   "char_start": 827,
+   "char_end": 1118,
+   "text": "Table 1 reports the main comparison. The baseline recovers 71.4% of body characters in the correct position, leaks 2 running-head lines per page, and its block order correlates with the ground truth at tau = 0.41. The column-aware extractor reaches 98.1%, leaks none, and reaches tau = 0.97.",
+   "bbox": [
+    307.5,
+    86.3,
+    520.7,
+    150.9
+   ],
+   "size": 8.6
+  },
+  {
+   "block_id": "p002b15",
+   "page": 2,
+   "source": "pages/p0002.txt",
+   "char_start": 1120,
+   "char_end": 1331,
+   "text": "The residual 1.9% is concentrated in the table: cells whose text wraps across two lines are merged, because the current implementation joins lines by vertical proximity before it splits cells by horizontal gaps.",
+   "bbox": [
+    307.5,
+    156.5,
+    521.1,
+    198.7
+   ],
+   "size": 8.6
+  },
+  {
+   "block_id": "p002b16",
+   "page": 2,
+   "source": "pages/p0002.txt",
+   "char_start": 1333,
+   "char_end": 1461,
+   "text": "Equation numbers are recovered exactly in both conditions because they sit at the right margin and survive content-stream order.",
+   "bbox": [
+    307.5,
+    201.3,
+    499.2,
+    232.3
+   ],
+   "size": 8.6
+  },
+  {
+   "block_id": "p003b01",
+   "page": 3,
+   "source": "pages/p0003.txt",
+   "char_start": 0,
+   "char_end": 12,
+   "text": "5 Discussion",
+   "bbox": [
+    52.0,
+    69.4,
+    116.2,
+    80.2
+   ],
+   "size": 10.8
+  },
+  {
+   "block_id": "p003b02",
+   "page": 3,
+   "source": "pages/p0003.txt",
+   "char_start": 14,
+   "char_end": 171,
+   "text": "Reading order is a precondition for every downstream task, and it is cheap to verify: a character range either re-slices to the recorded text or it does not.",
+   "bbox": [
+    52.0,
+    86.3,
+    256.6,
+    117.3
+   ],
+   "size": 8.6
+  },
+  {
+   "block_id": "p003b03",
+   "page": 3,
+   "source": "pages/p0003.txt",
+   "char_start": 173,
+   "char_end": 322,
+   "text": "We therefore report ranges rather than prose confidence, and we mark a block unresolved instead of guessing when its glyphs carry no usable position.",
+   "bbox": [
+    52.0,
+    119.9,
+    261.4,
+    150.9
+   ],
+   "size": 8.6
+  },
+  {
+   "block_id": "p003b04",
+   "page": 3,
+   "source": "pages/p0003.txt",
+   "char_start": 324,
+   "char_end": 569,
+   "text": "Two limits deserve mention. Pages whose columns are separated by a rule rather than whitespace defeat the cut test, and scanned pages have no glyph positions at all until OCR runs. Both are reported as unresolved blocks with the reason attached.",
+   "bbox": [
+    52.0,
+    156.5,
+    261.8,
+    209.9
+   ],
+   "size": 8.6
+  },
+  {
+   "block_id": "p003b05",
+   "page": 3,
+   "source": "pages/p0003.txt",
+   "char_start": 571,
+   "char_end": 583,
+   "text": "6 Conclusion",
+   "bbox": [
+    52.0,
+    213.8,
+    117.4,
+    224.6
+   ],
+   "size": 10.8
+  },
+  {
+   "block_id": "p003b06",
+   "page": 3,
+   "source": "pages/p0003.txt",
+   "char_start": 585,
+   "char_end": 905,
+   "text": "A whitespace-cut ordering pass, a frequency filter for running heads, and per-block character ranges together raise correct-position recall from 71.4% to 98.1% on a controlled two-column benchmark. The gain is measurable, the failure modes are named, and every reported block can be re-sliced from the emitted page text.",
+   "bbox": [
+    52.0,
+    230.6,
+    264.2,
+    306.4
+   ],
+   "size": 8.6
+  },
+  {
+   "block_id": "p003b07",
+   "page": 3,
+   "source": "pages/p0003.txt",
+   "char_start": 907,
+   "char_end": 917,
+   "text": "References",
+   "bbox": [
+    307.5,
+    69.4,
+    362.7,
+    80.2
+   ],
+   "size": 10.8
+  },
+  {
+   "block_id": "p003b08",
+   "page": 3,
+   "source": "pages/p0003.txt",
+   "char_start": 919,
+   "char_end": 1047,
+   "text": "[1] L. Chen and M. Okafor. Reading order recovery for two-column articles. Journal of Document Engineering, 12(3):201-219, 2023.",
+   "bbox": [
+    307.5,
+    86.3,
+    515.9,
+    117.3
+   ],
+   "size": 8.6
+  },
+  {
+   "block_id": "p003b09",
+   "page": 3,
+   "source": "pages/p0003.txt",
+   "char_start": 1049,
+   "char_end": 1210,
+   "text": "[2] R. Vasquez, A. Petrov, and S. Iyer. Table structure recognition with weak supervision. In Proceedings of the Document Analysis Conference, pages 88-97, 2022.",
+   "bbox": [
+    307.5,
+    122.9,
+    521.2,
+    153.9
+   ],
+   "size": 8.6
+  },
+  {
+   "block_id": "p003b10",
+   "page": 3,
+   "source": "pages/p0003.txt",
+   "char_start": 1212,
+   "char_end": 1326,
+   "text": "[3] M. Okafor. A note on running-head removal by frequency. Technical Report DE-2021-04, Example University, 2021.",
+   "bbox": [
+    307.5,
+    159.5,
+    502.0,
+    190.5
+   ],
+   "size": 8.6
+  },
+  {
+   "block_id": "p003b11",
+   "page": 3,
+   "source": "pages/p0003.txt",
+   "char_start": 1328,
+   "char_end": 1438,
+   "text": "[4] H. Zhang and K. Nakamura. Evaluating PDF extractors against rendered ground truth. arXiv:2401.01234, 2024.",
+   "bbox": [
+    307.5,
+    196.1,
+    528.8,
+    215.9
+   ],
+   "size": 8.6
+  },
+  {
+   "block_id": "p003b12",
+   "page": 3,
+   "source": "pages/p0003.txt",
+   "char_start": 1440,
+   "char_end": 1554,
+   "text": "[5] S. Iyer. Glyph geometry is not reading order. In Workshop on Scholarly Document Processing, pages 12-19, 2020.",
+   "bbox": [
+    307.5,
+    221.5,
+    537.4,
+    252.5
+   ],
+   "size": 8.6
+  }
+ ],
+ "reading_order": [
+  "p001b01",
+  "p001b02",
+  "p001b03",
+  "p001b04",
+  "p001b05",
+  "p001b06",
+  "p001b07",
+  "p001b08",
+  "p001b09",
+  "p001b10",
+  "p001b11",
+  "p001b12",
+  "p001b13",
+  "p001b14",
+  "p001b15",
+  "p001b16",
+  "p001b17",
+  "p002b01",
+  "p002b02",
+  "p002b03",
+  "p002b04",
+  "p002b05",
+  "p002b06",
+  "p002b07",
+  "p002b08",
+  "p002b09",
+  "p002b10",
+  "p002b11",
+  "p002b12",
+  "p002b13",
+  "p002b14",
+  "p002b15",
+  "p002b16",
+  "p003b01",
+  "p003b02",
+  "p003b03",
+  "p003b04",
+  "p003b05",
+  "p003b06",
+  "p003b07",
+  "p003b08",
+  "p003b09",
+  "p003b10",
+  "p003b11",
+  "p003b12"
+ ]
+}

@@ -1,0 +1,194 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+2 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+3 0 obj
+<< /Length 4785 >>
+stream
+BT /F1 7.6 Tf 1 0 0 1 52.00 802.00 Tm (Chen et al. / Column-Aware Extraction of Structured Content    1) Tj ET
+0.5 w 52.00 797.00 m 543.00 797.00 l S
+BT /F1 8 Tf 1 0 0 1 293.50 34.00 Tm (1) Tj ET
+BT /F1 14.5 Tf 1 0 0 1 52.00 770.00 Tm (Column-Aware Extraction of Structured Content from Two-Column) Tj ET
+BT /F1 14.5 Tf 1 0 0 1 52.00 752.50 Tm (Research Articles) Tj ET
+BT /F1 10.5 Tf 1 0 0 1 52.00 729.00 Tm (L. Chen, M. Okafor, R. Vasquez) Tj ET
+BT /F1 8.2 Tf 1 0 0 1 52.00 716.00 Tm (Institute of Document Engineering, Example University, Beijing 100084, China) Tj ET
+BT /F1 10.0 Tf 1 0 0 1 52.00 696.00 Tm (Abstract) Tj ET
+BT /F1 8.2 Tf 1 0 0 1 58.00 682.56 Tm (We study whether layout-aware reading-order reconstruction improves downstream use of scientific PDFs. A three-page) Tj ET
+BT /F1 8.2 Tf 1 0 0 1 58.00 671.81 Tm (benchmark with a known ground truth is rendered from a controlled layout engine, so that block order, header and) Tj ET
+BT /F1 8.2 Tf 1 0 0 1 58.00 661.06 Tm (footer positions, table cells and equation numbers are all known exactly. A naive extractor that reads glyphs in) Tj ET
+BT /F1 8.2 Tf 1 0 0 1 58.00 650.30 Tm (content-stream order recovers 71.4% of body characters in the correct position; a column-aware extractor that segments) Tj ET
+BT /F1 8.2 Tf 1 0 0 1 58.00 639.55 Tm (pages by whitespace cuts recovers 98.1%, and its block order agrees with the ground truth at Kendall tau = 0.97.) Tj ET
+BT /F1 7.8 Tf 1 0 0 1 52.00 622.80 Tm (document layout analysis; reading order; two-column PDF; table extraction; reproducibility) Tj ET
+BT /F1 10.8 Tf 1 0 0 1 52.00 602.64 Tm (1  Introduction) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 52.00 587.52 Tm (Two-column typesetting is the default for most) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 52.00 576.32 Tm (engineering and life-science journals, yet the text) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 52.00 565.12 Tm (layer of a PDF stores glyphs in the order the producer) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 52.00 553.92 Tm (wrote them, not in the order a reader consumes them.) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 52.00 542.72 Tm (Extraction tools that ignore geometry therefore) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 52.00 531.52 Tm (interleave the left and right columns and splice the) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 52.00 520.32 Tm (last line of one paragraph onto the first line of its) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 52.00 509.12 Tm (neighbour.) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 52.00 494.92 Tm (The damage is quiet. A language model handed) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 52.00 483.72 Tm (interleaved text still produces fluent answers, so the) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 52.00 472.52 Tm (failure surfaces only when a claim is checked against) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 52.00 461.32 Tm (the source. Our goal is narrower than full document) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 52.00 450.12 Tm (understanding: recover blocks in reading order, keep a) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 52.00 438.92 Tm (character range for every block, and report what could) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 52.00 427.72 Tm (not be recovered.) Tj ET
+BT /F1 10.8 Tf 1 0 0 1 52.00 413.52 Tm (2  Method) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 307.50 602.64 Tm (The pipeline has three stages. Stage one obtains glyph) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 307.50 591.44 Tm (bounding boxes from a layout backend. Stage two cuts) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 307.50 580.24 Tm (each page recursively along the widest whitespace gap) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 307.50 569.04 Tm (that no glyph crosses, which separates columns before) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 307.50 557.84 Tm (it separates paragraphs. Stage three assembles lines) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 307.50 546.64 Tm (into blocks, strips running heads by frequency, and) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 307.50 535.44 Tm (records for each block a character range into the) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 307.50 524.24 Tm (emitted page text.) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 307.50 510.04 Tm (Formally, let R be the set of bounding boxes on a page) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 307.50 498.84 Tm (and let g be a vertical gap. A cut at x = c is) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 307.50 487.64 Tm (admissible when no box in R straddles c. We choose the) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 307.50 476.44 Tm (admissible cut with maximal width, so that the column) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 307.50 465.24 Tm (gutter is always taken before any intra-column gap, and) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 307.50 454.04 Tm (recurse on both sides. The recursion stops when no gap) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 307.50 442.84 Tm (exceeds tau = 3.5% of the page width.) Tj ET
+BT /F1 9.2 Tf 1 0 0 1 317.50 428.64 Tm (tau = 0.035 * W) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 521.00 428.64 Tm (\(1\)) Tj ET
+BT /F1 9.2 Tf 1 0 0 1 317.50 410.72 Tm (recall = |C_match| / |C_true|) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 521.00 410.72 Tm (\(2\)) Tj ET
+endstream
+endobj
+4 0 obj
+<< /Length 3815 >>
+stream
+BT /F1 7.6 Tf 1 0 0 1 52.00 802.00 Tm (Chen et al. / Column-Aware Extraction of Structured Content    2) Tj ET
+0.5 w 52.00 797.00 m 543.00 797.00 l S
+BT /F1 8 Tf 1 0 0 1 293.50 34.00 Tm (2) Tj ET
+BT /F1 10.8 Tf 1 0 0 1 52.00 764.00 Tm (3  Experiments) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 52.00 748.88 Tm (The benchmark comprises three pages rendered at 8.6 pt) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 52.00 737.68 Tm (with a 20 pt gutter, a running head, page numbers, one) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 52.00 726.48 Tm (table with five columns and two numbered equations.) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 52.00 715.28 Tm (Ground truth is emitted by the renderer, so text, order) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 52.00 704.08 Tm (and table cells are exact rather than annotated by) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 52.00 692.88 Tm (hand.) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 52.00 678.68 Tm (We compare two extractors under identical inputs. The) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 52.00 667.48 Tm (naive baseline concatenates text in content-stream) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 52.00 656.28 Tm (order. The column-aware extractor is the pipeline of) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 52.00 645.08 Tm (Section 2. Both are scored on character recall in the) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 52.00 633.88 Tm (correct position, on block-order agreement, and on the) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 52.00 622.68 Tm (number of running-head lines that leak into the body.) Tj ET
+BT /F1 8.0 Tf 1 0 0 1 52.00 608.48 Tm (Table 1. Extraction quality on the three-page benchmark) Tj ET
+BT /F1 8.0 Tf 1 0 0 1 52.00 598.18 Tm (\(mean of 3 runs\).) Tj ET
+BT /F1 10.8 Tf 1 0 0 1 307.50 764.00 Tm (4  Results) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 307.50 748.88 Tm (Table 1 reports the main comparison. The baseline) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 307.50 737.68 Tm (recovers 71.4% of body characters in the correct) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 307.50 726.48 Tm (position, leaks 2 running-head lines per page, and its) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 307.50 715.28 Tm (block order correlates with the ground truth at tau =) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 307.50 704.08 Tm (0.41. The column-aware extractor reaches 98.1%, leaks) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 307.50 692.88 Tm (none, and reaches tau = 0.97.) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 307.50 678.68 Tm (The residual 1.9% is concentrated in the table: cells) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 307.50 667.48 Tm (whose text wraps across two lines are merged, because) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 307.50 656.28 Tm (the current implementation joins lines by vertical) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 307.50 645.08 Tm (proximity before it splits cells by horizontal gaps.) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 307.50 633.88 Tm (Equation numbers are recovered exactly in both) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 307.50 622.68 Tm (conditions because they sit at the right margin and) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 307.50 611.48 Tm (survive content-stream order.) Tj ET
+0.8 w 52.00 577.87 m 287.00 577.87 l S
+BT /F1 6.6 Tf 1 0 0 1 55.00 568.87 Tm (Extractor) Tj ET
+BT /F1 6.6 Tf 1 0 0 1 143.00 568.87 Tm (Char. recall) Tj ET
+BT /F1 6.6 Tf 1 0 0 1 189.00 568.87 Tm (Order tau) Tj ET
+BT /F1 6.6 Tf 1 0 0 1 227.00 568.87 Tm (Head leak) Tj ET
+BT /F1 6.6 Tf 1 0 0 1 263.00 568.87 Tm (Table F1) Tj ET
+0.5 w 52.00 565.87 m 287.00 565.87 l S
+BT /F1 6.6 Tf 1 0 0 1 55.00 556.37 Tm (Content-stream) Tj ET
+BT /F1 6.6 Tf 1 0 0 1 143.00 556.37 Tm (71.4%) Tj ET
+BT /F1 6.6 Tf 1 0 0 1 189.00 556.37 Tm (0.41) Tj ET
+BT /F1 6.6 Tf 1 0 0 1 227.00 556.37 Tm (2.0) Tj ET
+BT /F1 6.6 Tf 1 0 0 1 263.00 556.37 Tm (0.55) Tj ET
+BT /F1 6.6 Tf 1 0 0 1 55.00 543.87 Tm (Column-aware) Tj ET
+BT /F1 6.6 Tf 1 0 0 1 143.00 543.87 Tm (98.1%) Tj ET
+BT /F1 6.6 Tf 1 0 0 1 189.00 543.87 Tm (0.97) Tj ET
+BT /F1 6.6 Tf 1 0 0 1 227.00 543.87 Tm (0.0) Tj ET
+BT /F1 6.6 Tf 1 0 0 1 263.00 543.87 Tm (0.88) Tj ET
+0.8 w 52.00 542.87 m 287.00 542.87 l S
+endstream
+endobj
+5 0 obj
+<< /Length 3371 >>
+stream
+BT /F1 7.6 Tf 1 0 0 1 52.00 802.00 Tm (Chen et al. / Column-Aware Extraction of Structured Content    3) Tj ET
+0.5 w 52.00 797.00 m 543.00 797.00 l S
+BT /F1 8 Tf 1 0 0 1 293.50 34.00 Tm (3) Tj ET
+BT /F1 10.8 Tf 1 0 0 1 52.00 764.00 Tm (5  Discussion) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 52.00 748.88 Tm (Reading order is a precondition for every downstream) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 52.00 737.68 Tm (task, and it is cheap to verify: a character range) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 52.00 726.48 Tm (either re-slices to the recorded text or it does not.) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 52.00 715.28 Tm (We therefore report ranges rather than prose) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 52.00 704.08 Tm (confidence, and we mark a block unresolved instead of) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 52.00 692.88 Tm (guessing when its glyphs carry no usable position.) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 52.00 678.68 Tm (Two limits deserve mention. Pages whose columns are) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 52.00 667.48 Tm (separated by a rule rather than whitespace defeat the) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 52.00 656.28 Tm (cut test, and scanned pages have no glyph positions at) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 52.00 645.08 Tm (all until OCR runs. Both are reported as unresolved) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 52.00 633.88 Tm (blocks with the reason attached.) Tj ET
+BT /F1 10.8 Tf 1 0 0 1 52.00 619.68 Tm (6  Conclusion) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 52.00 604.56 Tm (A whitespace-cut ordering pass, a frequency filter for) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 52.00 593.36 Tm (running heads, and per-block character ranges together) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 52.00 582.16 Tm (raise correct-position recall from 71.4% to 98.1% on a) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 52.00 570.96 Tm (controlled two-column benchmark. The gain is) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 52.00 559.76 Tm (measurable, the failure modes are named, and every) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 52.00 548.56 Tm (reported block can be re-sliced from the emitted page) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 52.00 537.36 Tm (text.) Tj ET
+BT /F1 10.8 Tf 1 0 0 1 307.50 764.00 Tm (References) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 307.50 748.88 Tm ([1] L. Chen and M. Okafor. Reading order recovery for) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 307.50 737.68 Tm (two-column articles. Journal of Document Engineering,) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 307.50 726.48 Tm (12\(3\):201-219, 2023.) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 307.50 712.28 Tm ([2] R. Vasquez, A. Petrov, and S. Iyer. Table structure) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 307.50 701.08 Tm (recognition with weak supervision. In Proceedings of) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 307.50 689.88 Tm (the Document Analysis Conference, pages 88-97, 2022.) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 307.50 675.68 Tm ([3] M. Okafor. A note on running-head removal by) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 307.50 664.48 Tm (frequency. Technical Report DE-2021-04, Example) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 307.50 653.28 Tm (University, 2021.) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 307.50 639.08 Tm ([4] H. Zhang and K. Nakamura. Evaluating PDF extractors) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 307.50 627.88 Tm (against rendered ground truth. arXiv:2401.01234, 2024.) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 307.50 613.68 Tm ([5] S. Iyer. Glyph geometry is not reading order. In) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 307.50 602.48 Tm (Workshop on Scholarly Document Processing, pages 12-19,) Tj ET
+BT /F1 8.6 Tf 1 0 0 1 307.50 591.28 Tm (2020.) Tj ET
+endstream
+endobj
+6 0 obj
+<< /Type /Page /Parent 12 0 R /MediaBox [0 0 595.0 842.0] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 3 0 R >>
+endobj
+7 0 obj
+<< /Type /Page /Parent 12 0 R /MediaBox [0 0 595.0 842.0] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 4 0 R >>
+endobj
+8 0 obj
+<< /Type /Page /Parent 12 0 R /MediaBox [0 0 595.0 842.0] /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> /Contents 5 0 R >>
+endobj
+9 0 obj
+<< /Type /Pages /Kids [6 0 R 7 0 R 8 0 R] /Count 3 >>
+endobj
+10 0 obj
+<< /Type /Catalog /Pages 9 0 R >>
+endobj
+xref
+0 11
+0000000000 65535 f 
+0000000015 00000 n 
+0000000112 00000 n 
+0000000209 00000 n 
+0000005046 00000 n 
+0000008913 00000 n 
+0000012336 00000 n 
+0000012477 00000 n 
+0000012618 00000 n 
+0000012759 00000 n 
+0000012828 00000 n 
+trailer
+<< /Size 11 /Root 10 0 R >>
+startxref
+12878
+%%EOF

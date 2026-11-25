@@ -1,0 +1,84 @@
+{
+ "demo": "input",
+ "variants": {
+  "column_major_stream": {
+   "pdf": "paper.pdf",
+   "backend": "pdfminer",
+   "pages": 3,
+   "baseline": {
+    "window_recall": 0.9646,
+    "order_tau": 1.0,
+    "head_leak": 3,
+    "table_f1": 0.0
+   },
+   "columnaware": {
+    "window_recall": 0.9646,
+    "order_tau": 1.0,
+    "head_leak": 0,
+    "table_f1": 1.0
+   },
+   "tables_found": 1,
+   "table_iou": 1.0,
+   "blocks": 45,
+   "sections": [
+    "Abstract",
+    "1 Introduction",
+    "2 Method",
+    "tau = 0.035 * W",
+    "recall = |C_match| / |C_true|",
+    "3 Experiments",
+    "4 Results",
+    "5 Discussion",
+    "6 Conclusion",
+    "References"
+   ]
+  },
+  "row_major_stream": {
+   "pdf": "paper_interleaved.pdf",
+   "backend": "pdfminer",
+   "pages": 3,
+   "baseline": {
+    "window_recall": 0.3451,
+    "order_tau": 0.8972,
+    "head_leak": 3,
+    "table_f1": 0.0
+   },
+   "columnaware": {
+    "window_recall": 0.9646,
+    "order_tau": 1.0,
+    "head_leak": 0,
+    "table_f1": 1.0
+   },
+   "tables_found": 1,
+   "table_iou": 1.0,
+   "blocks": 45,
+   "sections": [
+    "Abstract",
+    "1 Introduction",
+    "2 Method",
+    "tau = 0.035 * W",
+    "recall = |C_match| / |C_true|",
+    "3 Experiments",
+    "4 Results",
+    "5 Discussion",
+    "6 Conclusion",
+    "References"
+   ]
+  }
+ },
+ "delta": {
+  "column_major_stream": {
+   "order_tau": 0.0,
+   "window_recall": 0.0,
+   "head_leak_removed": 3,
+   "table_f1": 1.0
+  },
+  "row_major_stream": {
+   "order_tau": 0.1028,
+   "window_recall": 0.6195,
+   "head_leak_removed": 3,
+   "table_f1": 1.0
+  }
+ },
+ "generated_by": "demo/bench.py"
+}

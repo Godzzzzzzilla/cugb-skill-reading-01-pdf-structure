@@ -1,0 +1,88 @@
+{
+ "deviations_from_paper": [
+  {
+   "target": "evidence anchors re-slice exactly",
+   "metric": "custom",
+   "reference_value": 1.0,
+   "actual_value": 1.0,
+   "score": 1.0,
+   "tolerance": 0.0,
+   "verifier_script": "scripts/verify.py",
+   "evidence_artifact": "result",
+   "explanation": "Every evidence item is a character range into an emitted text file; verify.py re-slices it and recomputes the share that still matches."
+  },
+  {
+   "target": "reading order, column_major_stream",
+   "metric": "custom",
+   "reference_value": 1.0,
+   "actual_value": 0.0,
+   "score": 0.0,
+   "tolerance": 0.0,
+   "verifier_script": "bench.py",
+   "evidence_artifact": "bench",
+   "explanation": "window_recall delta over the naive baseline on column_major_stream; order tau 0.0, running-head lines removed 3, table F1 1.0."
+  },
+  {
+   "target": "reading order, row_major_stream",
+   "metric": "custom",
+   "reference_value": 1.0,
+   "actual_value": 0.6195,
+   "score": 0.6195,
+   "tolerance": 0.0,
+   "verifier_script": "bench.py",
+   "evidence_artifact": "bench",
+   "explanation": "window_recall delta over the naive baseline on row_major_stream; order tau 0.1028, running-head lines removed 3, table F1 1.0."
+  }
+ ],
+ "envelope": [
+  {
+   "condition": "two-column journal PDF, text layer present",
+   "status": "in envelope",
+   "note": "XY-cut splits the gutter; demo measures 95.6% window recall"
+  },
+  {
+   "condition": "single-column PDF",
+   "status": "in envelope",
+   "note": "no vertical cut is taken; blocks follow vertical order"
+  },
+  {
+   "condition": "scanned PDF, no text layer",
+   "status": "out of envelope",
+   "note": "reported as cannot_determine, OCR named"
+  },
+  {
+   "condition": "gutter narrower than 3% of page width",
+   "status": "out of envelope",
+   "note": "columns stay merged; audit says so"
+  }
+ ],
+ "failure_modes": [
+  {
+   "mode": "producer writes glyphs row-major",
+   "impact": "baseline interleaves columns; skill repairs order (34.5% -> 96.5% window recall)"
+  },
+  {
+   "mode": "column separator is a drawn rule, not whitespace",
+   "impact": "no admissible cut; both columns in one block"
+  },
+  {
+   "mode": "formula stored as an image",
+   "impact": "block missing; listed under uncertainty rather than transcribed"
+  },
+  {
+   "mode": "pypdf-only environment",
+   "impact": "glyph widths are estimated, so table cell assignment is coarser than with poppler"
+  }
+ ],
+ "sensitivity": [
+  {
+   "parameter": "min_gap_ratio (vertical cut, 0.03 of page width)",
+   "effect": "lower splits narrow gutters but also splits indented lists"
+  },
+  {
+   "parameter": "paragraph break (line stops 1.6 line-heights short)",
+   "effect": "higher merges paragraphs, lower over-splits"
+  }
+ ],
+ "note": "This is a skill-authoring challenge: the targets are the demonstration benchmark and the audit, not a paper's reported numbers."
+}

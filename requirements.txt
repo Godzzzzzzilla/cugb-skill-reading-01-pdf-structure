@@ -1,0 +1,2 @@
+# Intentionally empty: the skill runs on the Python standard library.
+# Optional, used when present: pypdf, pdfminer.six, poppler's pdftotext.

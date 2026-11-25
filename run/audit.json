@@ -1,0 +1,99 @@
+{
+ "checks": [
+  {
+   "id": "input-found",
+   "ok": true,
+   "detail": "2 pdf, 0 text file(s) under C:\\Users\\zcy\\WorkBuddy\\2026-11-25-15-07-35\\arena\\tasks\\reading-01-pdf-structure\\examples",
+   "weight": 1.0,
+   "critical": true
+  },
+  {
+   "id": "pdf-opened",
+   "ok": true,
+   "detail": "backend=pdfminer, pages=3",
+   "weight": 1.0,
+   "critical": true
+  },
+  {
+   "id": "blocks-found",
+   "ok": true,
+   "detail": "45 blocks",
+   "weight": 1.0,
+   "critical": false
+  },
+  {
+   "id": "block-offsets-exact",
+   "ok": true,
+   "detail": "45/45 blocks re-slice to their own text",
+   "weight": 1.0,
+   "critical": true
+  },
+  {
+   "id": "anchors-verified",
+   "ok": true,
+   "detail": "14/14 anchors re-sliced",
+   "weight": 1.0,
+   "critical": true
+  },
+  {
+   "id": "running-heads-removed",
+   "ok": true,
+   "detail": "no repeated running-head line survived into the body",
+   "weight": 1.0,
+   "critical": false
+  },
+  {
+   "id": "sections-ordered",
+   "ok": true,
+   "detail": "10 headings in page/offset order",
+   "weight": 1.0,
+   "critical": false
+  },
+  {
+   "id": "sections-found",
+   "ok": true,
+   "detail": "10 headings",
+   "weight": 0.6,
+   "critical": false
+  },
+  {
+   "id": "multi-column-handled",
+   "ok": true,
+   "detail": "blocks on at least one page occupy two x-bands",
+   "weight": 0.5,
+   "critical": false
+  },
+  {
+   "id": "captions-detected",
+   "ok": true,
+   "detail": "1 captions",
+   "weight": 0.6,
+   "critical": false
+  },
+  {
+   "id": "tables-detected",
+   "ok": true,
+   "detail": "1 tables",
+   "weight": 0.6,
+   "critical": false
+  },
+  {
+   "id": "equations-detected",
+   "ok": true,
+   "detail": "2 numbered equations",
+   "weight": 0.4,
+   "critical": false
+  },
+  {
+   "id": "structure-coverage",
+   "ok": true,
+   "detail": "100% of the four structural classes present",
+   "weight": 0.8,
+   "critical": false
+  }
+ ],
+ "passed": 13,
+ "total": 13,
+ "ratio": 1.0,
+ "failed_critical": []
+}

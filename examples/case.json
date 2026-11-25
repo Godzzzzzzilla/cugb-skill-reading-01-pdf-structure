@@ -1,0 +1,19 @@
+{
+ "case_id": "demo-two-column-01",
+ "task": "Parse the PDF into reading-order structure: sections, blocks with character ranges, captions, equations and tables. Report anything you cannot recover.",
+ "materials": [
+  "paper.pdf",
+  "paper_interleaved.pdf"
+ ],
+ "output_contract": {
+  "fields": [
+   "document",
+   "page_count",
+   "block_count",
+   "section_count",
+   "table_count",
+   "evidence",
+   "uncertainty"
+  ]
+ }
+}

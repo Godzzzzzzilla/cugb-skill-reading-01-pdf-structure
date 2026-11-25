@@ -1,0 +1,31 @@
+3 Experiments
+
+The benchmark comprises three pages rendered at 8.6 pt with a 20 pt gutter, a running head, page numbers, one table with five columns and two numbered equations.
+
+Ground truth is emitted by the renderer, so text, order and table cells are exact rather than annotated by hand.
+
+We compare two extractors under identical inputs. The naive baseline concatenates text in content-stream order. The column-aware extractor is the pipeline of Section 2. Both are scored on character recall in the correct position, on block-order agreement, and on the number of running-head lines that leak into the body.
+
+Table 1. Extraction quality on the three-page benchmark (mean of 3 runs).
+
+Extractor
+
+Content-stream Column-aware
+
+Char. recall Order tau Head leak Table F1
+
+71.4% 98.1%
+
+0.41 0.97
+
+2.0 0.0
+
+0.55 0.88
+
+4 Results
+
+Table 1 reports the main comparison. The baseline recovers 71.4% of body characters in the correct position, leaks 2 running-head lines per page, and its block order correlates with the ground truth at tau = 0.41. The column-aware extractor reaches 98.1%, leaks none, and reaches tau = 0.97.
+
+The residual 1.9% is concentrated in the table: cells whose text wraps across two lines are merged, because the current implementation joins lines by vertical proximity before it splits cells by horizontal gaps.
+
+Equation numbers are recovered exactly in both conditions because they sit at the right margin and survive content-stream order.

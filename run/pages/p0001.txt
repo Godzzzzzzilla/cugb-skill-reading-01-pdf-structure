@@ -1,0 +1,33 @@
+Column-Aware Extraction of Structured Content from Two-Column
+
+Research Articles
+
+L. Chen, M. Okafor, R. Vasquez
+
+Institute of Document Engineering, Example University, Beijing 100084, China
+
+Abstract
+
+We study whether layout-aware reading-order reconstruction improves downstream use of scientific PDFs. A three-page benchmark with a known ground truth is rendered from a controlled layout engine, so that block order, header and footer positions, table cells and equation numbers are all known exactly. A naive extractor that reads glyphs in content-stream order recovers 71.4% of body characters in the correct position; a column-aware extractor that segments pages by whitespace cuts recovers 98.1%, and its block order agrees with the ground truth at Kendall tau = 0.97.
+
+document layout analysis; reading order; two-column PDF; table extraction; reproducibility
+
+1 Introduction
+
+Two-column typesetting is the default for most engineering and life-science journals, yet the text layer of a PDF stores glyphs in the order the producer wrote them, not in the order a reader consumes them. Extraction tools that ignore geometry therefore interleave the left and right columns and splice the last line of one paragraph onto the first line of its neighbour.
+
+The damage is quiet. A language model handed interleaved text still produces fluent answers, so the failure surfaces only when a claim is checked against the source. Our goal is narrower than full document understanding: recover blocks in reading order, keep a character range for every block, and report what could not be recovered.
+
+2 Method
+
+The pipeline has three stages. Stage one obtains glyph bounding boxes from a layout backend. Stage two cuts each page recursively along the widest whitespace gap that no glyph crosses, which separates columns before it separates paragraphs. Stage three assembles lines into blocks, strips running heads by frequency, and records for each block a character range into the emitted page text.
+
+Formally, let R be the set of bounding boxes on a page and let g be a vertical gap. A cut at x = c is admissible when no box in R straddles c. We choose the admissible cut with maximal width, so that the column gutter is always taken before any intra-column gap, and recurse on both sides. The recursion stops when no gap exceeds tau = 3.5% of the page width.
+
+tau = 0.035 * W
+
+(1)
+
+recall = |C_match| / |C_true|
+
+(2)
